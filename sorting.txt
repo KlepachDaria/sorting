@@ -1,0 +1,31 @@
+N = int(input())
+List1 = str(input())
+
+
+List2 = List1.split(' ')
+numberList = []
+chet = []
+nechet = []
+for k in range(0, len(List2)):
+    a = int(List2[k])
+    numberList.append(a)
+
+for i in range(0, N):
+    if numberList[i] % 2 == 0:
+        a = numberList[i]
+        chet.append(a)
+    else: 
+        b = numberList[i]
+        nechet.append(b)
+        
+for j in range(0, len(chet)-1):
+    for i in range(0, len(chet)-j-1):
+        if chet[i] > chet[i+1]:
+            chet[i],chet[i+1] = chet[i+1],chet[i]
+            
+for j in range(0, len(nechet)-1):
+    for i in range(0, len(nechet)-j-1):
+        if nechet[i] < nechet[i+1]:
+            nechet[i],nechet[i+1] = nechet[i+1],nechet[i]
+mergedlist = chet + nechet 
+print(mergedlist)
